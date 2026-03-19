@@ -2,7 +2,8 @@ const CACHE_NAME = 'cgz-cache-v1';
 const urlsToCache = [
   './index.html',
   './styles.css',
-  './app.js'
+  './app.js',
+  './icon.png'
 ];
 
 self.addEventListener('install', event => {
@@ -34,7 +35,7 @@ self.addEventListener('message', event => {
         const { title, body } = event.data.payload;
         self.registration.showNotification(title, {
             body: body,
-            icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Circle-icons-calendar.svg/1024px-Circle-icons-calendar.svg.png",
+            icon: "./icon.png",
             vibrate: [200, 100, 200]
         });
     }

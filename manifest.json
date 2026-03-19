@@ -7,7 +7,7 @@
   "theme_color": "#111111",
   "icons": [
     {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Circle-icons-calendar.svg/1024px-Circle-icons-calendar.svg.png",
+      "src": "./icon.png",
       "sizes": "1024x1024",
       "type": "image/png"
     }
