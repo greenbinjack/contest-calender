@@ -1,0 +1,15 @@
+{
+  "name": "Contest Calender",
+  "short_name": "Contest Calender",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#111111",
+  "icons": [
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Circle-icons-calendar.svg/1024px-Circle-icons-calendar.svg.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ]
+}
