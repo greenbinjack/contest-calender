@@ -1,15 +1,33 @@
 {
   "name": "Contest Calender",
   "short_name": "Contest Calender",
+  "description": "A dark-mode, mobile-first competitive programming contest calendar and push notification system.",
+  "id": "contest-calender-app",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui",
+    "browser"
+  ],
+  "orientation": "portrait",
   "background_color": "#111111",
   "theme_color": "#111111",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": [
+    "utilities",
+    "productivity",
+    "education"
+  ],
+  "prefer_related_applications": false,
   "icons": [
     {
-      "src": "./icon.png",
-      "sizes": "1024x1024",
-      "type": "image/png"
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }

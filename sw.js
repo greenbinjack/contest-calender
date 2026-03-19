@@ -3,7 +3,7 @@ const urlsToCache = [
   './index.html',
   './styles.css',
   './app.js',
-  './icon.png'
+  './icon-512.png'
 ];
 
 self.addEventListener('install', event => {
@@ -35,7 +35,7 @@ self.addEventListener('message', event => {
         const { title, body } = event.data.payload;
         self.registration.showNotification(title, {
             body: body,
-            icon: "./icon.png",
+            icon: "./icon-512.png",
             vibrate: [200, 100, 200]
         });
     }
