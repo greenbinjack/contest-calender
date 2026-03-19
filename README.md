@@ -15,4 +15,6 @@ A dark-mode, mobile-first competitive programming contest calendar.
 - **Clist.by API**: Fetches reliable, up-to-date competitive programming contest schedules.
 
 ## Download the App
-An Android `.apk` file is included in this repository! You can download it directly to your mobile device, install it, and start tracking contests on the go without needing a browser.
+You can download the latest Android `.apk` file directly from the **[GitHub Releases Page](https://github.com/greenbinjack/contest-calender/releases/latest)**! 
+
+Install it on your mobile device to start tracking contests on the go without needing a browser.
