@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }).catch(err => console.error("SW Registration Failed", err));
     }
 
+    /*
     // Set up master notification toggle
     const enableAlertsBtn = document.getElementById('enable-alerts-btn');
     let alertsEnabled = localStorage.getItem('alerts_enabled') === 'true';
@@ -85,6 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     });
+    */
 
     // GSAP Registration
     if (typeof gsap !== 'undefined') {
@@ -92,7 +94,15 @@ document.addEventListener("DOMContentLoaded", () => {
         initCodeParticles();
     }
     
-    fetchUpcomingContests();
+    fetchUpcomingContests().finally(() => {
+        setTimeout(() => {
+            const splashScreen = document.getElementById('splash-screen');
+            if (splashScreen) {
+                splashScreen.classList.add('hidden');
+                setTimeout(() => splashScreen.remove(), 500);
+            }
+        }, 1200); // 1.2s delay so the splash screen is visible momentarily
+    });
 });
 
 function sendPush(title, body) {
@@ -344,7 +354,7 @@ function updateTimers() {
             badge.classList.remove('live');
             
             // Trigger 2h and 30m background notifications automatically
-            checkNotifications(contest, diffSeconds);
+            // checkNotifications(contest, diffSeconds);
         }
     });
 }
