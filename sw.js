@@ -13,12 +13,17 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('fetch', event => {
-  // Service Worker offline caching strategy (Stale while revalidate)
+  // Stale-While-Revalidate: Returns cached version instantly but fetches latest code in background
   event.respondWith(
     caches.match(event.request)
-      .then(response => {
-          if (response) return response;
-          return fetch(event.request);
+      .then(cachedResponse => {
+          const fetchPromise = fetch(event.request).then(networkResponse => {
+              caches.open(CACHE_NAME).then(cache => {
+                  cache.put(event.request, networkResponse.clone());
+              });
+              return networkResponse;
+          });
+          return cachedResponse || fetchPromise;
       })
   );
 });
