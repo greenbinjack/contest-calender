@@ -14,5 +14,5 @@ A dark-mode, mobile-first competitive programming contest calendar.
 - **GSAP**: Used for floating code background particles and smooth scroll animations.
 - **Clist.by API**: Fetches reliable, up-to-date competitive programming contest schedules.
 
-## Converting to an APK
-You can easily wrap this PWA into an Android APK using tools like **PWABuilder** or **Capacitor**, thanks to the included `manifest.json` and `sw.js` (Service Worker).
+## Download the App
+An Android `.apk` file is included in this repository! You can download it directly to your mobile device, install it, and start tracking contests on the go without needing a browser.
