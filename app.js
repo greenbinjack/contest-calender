@@ -97,20 +97,54 @@ function renderList() {
         return;
     }
 
+    const now = new Date();
+    const todayStr = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Dhaka', year: 'numeric', month: '2-digit', day: '2-digit' }).format(now);
+    
+    const tomorrow = new Date(now);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const tomorrowStr = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Dhaka', year: 'numeric', month: '2-digit', day: '2-digit' }).format(tomorrow);
+
+    let currentGroupContainer = null;
+    let currentHeaderDateStr = null;
+
     allContests.forEach((contest, index) => {
+        const utcStartStr = contest.start.endsWith('Z') ? contest.start : contest.start + 'Z';
+        const startDate = new Date(utcStartStr);
+        
+        const contestDateKey = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Dhaka', year: 'numeric', month: '2-digit', day: '2-digit' }).format(startDate);
+
+        if (contestDateKey !== currentHeaderDateStr) {
+            currentHeaderDateStr = contestDateKey;
+            
+            let displayHeaderStr = "";
+            if (contestDateKey === todayStr) {
+                displayHeaderStr = `<i class="fa-solid fa-bolt" style="margin-right: 0.5rem; color: var(--accent-primary)"></i> Today`;
+            } else if (contestDateKey === tomorrowStr) {
+                displayHeaderStr = `<i class="fa-solid fa-rocket" style="margin-right: 0.5rem; color: var(--orb-2)"></i> Tomorrow`;
+            } else {
+                displayHeaderStr = `<i class="fa-regular fa-calendar" style="margin-right: 0.5rem; opacity: 0.6"></i> ` + 
+                                   new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Dhaka', month: 'long', day: 'numeric', weekday: 'long' }).format(startDate);
+            }
+
+            currentGroupContainer = document.createElement('div');
+            currentGroupContainer.className = 'day-group';
+            
+            const header = document.createElement('div');
+            header.className = 'date-header';
+            header.innerHTML = displayHeaderStr;
+            currentGroupContainer.appendChild(header);
+
+            listContainer.appendChild(currentGroupContainer);
+        }
+
         const card = document.createElement('a');
         card.href = contest.href;
         card.target = "_blank";
         card.className = "contest-card";
-        card.style.animationDelay = `${index * 0.05}s`;
+        card.style.animationDelay = `${(index % 20) * 0.05}s`;
 
         const resourceDomain = contest.resource.replace('www.', '').split('.')[0];
         
-        // Ensure the API's time is parsed as UTC
-        const utcStartStr = contest.start.endsWith('Z') ? contest.start : contest.start + 'Z';
-        const startDate = new Date(utcStartStr);
-        
-        // Strictly format to GMT+6
         const dateStr = new Intl.DateTimeFormat('en-US', {
             timeZone: 'Asia/Dhaka',
             month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
@@ -126,7 +160,7 @@ function renderList() {
                 <span class="contest-start-date">${dateStr}</span>
             </div>
         `;
-        listContainer.appendChild(card);
+        currentGroupContainer.appendChild(card);
     });
 
     updateTimers();

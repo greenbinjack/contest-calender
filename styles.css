@@ -111,8 +111,42 @@ body {
 .list-container {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 3rem; /* Spacing between days */
     padding-bottom: 4rem;
+}
+
+/* Day Grouping */
+.day-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem; /* Spacing between cards of the same day */
+    position: relative;
+}
+
+/* Sticky Date Header */
+.date-header {
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+    align-self: flex-start;
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--glass-border);
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    box-shadow: var(--glass-shadow);
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+
+.theme-light .date-header {
+    background: rgba(255, 255, 255, 0.85);
 }
 
 /* Horizontal Card */
