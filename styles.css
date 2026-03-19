@@ -210,10 +210,24 @@ body {
 }
 
 @media (max-width: 768px) {
-    .glass-header { padding: 1.25rem; border-radius: 20px; margin-bottom: 2rem; flex-wrap: wrap;}
-    .contest-card { flex-direction: column; align-items: flex-start; padding: 1.25rem; gap: 1.5rem; }
+    .glass-header { padding: 1.25rem; border-radius: 20px; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;}
+    .contest-card { padding: 1.25rem; }
+    .card-content-row { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
     .card-right { align-items: flex-start; width: 100%; flex-direction: row-reverse; justify-content: space-between; align-items: center; }
     .contest-series { font-size: 1.3rem; }
     .timer-badge { font-size: 0.9rem; padding: 0.5rem 1rem; }
     .actions { width: 100%; justify-content: flex-end; display:flex;}
+}
+
+@media (max-width: 400px) {
+    .app-container { padding: 1rem; }
+    .contest-card { padding: 1.25rem 1rem; }
+    .card-right { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    .contest-series { font-size: 1.15rem; word-break: break-word; }
+    .contest-platform { font-size: 0.75rem; }
+    .timer-badge { font-size: 0.8rem; padding: 0.4rem 0.8rem; width: 100%; justify-content: center; }
+    .actions { justify-content: center; width: 100%; }
+    .subscribe-btn { width: 100%; justify-content: center; font-size: 0.8rem; }
+    .glass-header { padding: 1rem; }
+    .brand-text { font-size: 1.2rem; }
 }
