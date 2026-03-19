@@ -1,71 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" class="theme-dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C-List Weekly Calendar</title>
-    
-    <!-- Modern Typography -->
+    <title>Contest Calender</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;800&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <link rel="stylesheet" href="./styles.css">
 </head>
+
 <body>
-    <!-- Abstract gradient backgrounds -->
-    <div class="bg-gradient-1"></div>
-    <div class="bg-gradient-2"></div>
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
 
-    <nav class="navbar">
-        <div class="nav-brand">
-            <div class="logo-icon"><i class="fa-regular fa-calendar-days"></i></div>
-            <span>Contest <span class="highlight">Calendar</span></span>
-        </div>
-        
-        <div class="nav-actions">
-            <button id="theme-toggle" class="btn-icon" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
-                <i class="fa-solid fa-sun light-icon"></i>
-                <i class="fa-solid fa-moon dark-icon"></i>
-            </button>
-            <button id="refresh-btn" class="btn-primary">
-                <i class="fa-solid fa-rotate-right"></i> Refresh
-            </button>
-        </div>
-    </nav>
-
-    <main class="container">
-        <header class="week-header">
-            <div>
-                <h1 id="week-title">This Week's Contests</h1>
-                <p id="week-date-range" class="text-muted">Loading dates...</p>
+    <div class="app-container">
+        <header class="glass-header">
+            <div class="brand">
+                <div class="logo-mark"><i class="fa-solid fa-bolt"></i></div>
+                <span class="brand-text">Contest Calender</span>
             </div>
-            
-            <div class="week-navigation">
-                <button id="prev-week" class="btn-icon"><i class="fa-solid fa-chevron-left"></i></button>
-                <button id="next-week" class="btn-icon"><i class="fa-solid fa-chevron-right"></i></button>
+
+            <div class="actions">
+                <button id="theme-toggle" class="nav-btn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon dark-icon"></i>
+                    <i class="fa-solid fa-sun light-icon"></i>
+                </button>
             </div>
         </header>
 
-        <div id="status-container" class="status-panel message-glass hidden">
-            <!-- Loading or error messages appear here -->
-        </div>
+        <div id="status-container" class="status-panel hidden"></div>
 
-        <div class="calendar-wrapper">
-            <button id="scroll-left" class="scroll-btn left"><i class="fa-solid fa-chevron-left"></i></button>
-            <div class="calendar-grid" id="calendar-grid">
-                <!-- Columns will be injected by JavaScript -->
-            </div>
-            <button id="scroll-right" class="scroll-btn right"><i class="fa-solid fa-chevron-right"></i></button>
-        </div>
-    </main>
-
-    <!-- Scroll to Top Button -->
-    <button id="scroll-top-btn" class="scroll-top-btn"><i class="fa-solid fa-arrow-up"></i></button>
+        <main class="list-container" id="contest-list">
+            <!-- Cards injected via JS -->
+        </main>
+    </div>
 
     <script src="./app.js"></script>
 </body>
+
 </html>
